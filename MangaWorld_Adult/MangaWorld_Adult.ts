@@ -18,7 +18,7 @@ import { Parser } from './parser'
 import { URLBuilder } from './helper'
 
 const MW_DOMAIN = 'https://www.mangaworldadult.com'
-export const MangaWorld_AdultInfo: SourceInfo = {
+export const MangaWorldInfo: SourceInfo = {
     version: '2.0.1',
     name: 'MangaWorld Adult',
     description: 'Extension that pulls manga from MangaWorld Adult.',

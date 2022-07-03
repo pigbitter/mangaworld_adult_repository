@@ -394,9 +394,9 @@ const helper_1 = require("./helper");
 const MW_DOMAIN = 'https://www.mangaworldadult.com';
 exports.MangaWorldInfo = {
     version: '2.0.1',
-    name: 'MangaWorld',
-    description: 'Extension that pulls manga from MangaWorld.',
-    author: 'NmN',
+    name: 'MangaWorld Adult',
+    description: 'Extension that pulls manga from MangaWorld Adult.',
+    author: 'NmN (modified by karoku9)',
     authorWebsite: 'http://github.com/pandeynmm',
     icon: 'icon.png',
     contentRating: paperback_extensions_common_1.ContentRating.EVERYONE,

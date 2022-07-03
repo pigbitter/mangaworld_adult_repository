@@ -17,7 +17,7 @@ import {
 import { Parser } from './parser'
 import { URLBuilder } from './helper'
 
-const MW_DOMAIN = 'https://www.mangaworld.in'
+const MW_DOMAIN = 'https://www.mangaworldadult.com'
 export const MangaWorldInfo: SourceInfo = {
     version: '2.0.1',
     name: 'MangaWorld Adult',

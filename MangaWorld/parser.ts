@@ -180,7 +180,7 @@ export class Parser {
 
         let i = 0
         for (const obj of arrHotTitle) {
-            const id    = $('a', obj).attr('href')?.replace('https://www.mangaworld.in/manga/', '') ?? ''
+            const id    = $('a', obj).attr('href')?.replace('https://www.mangaworldadult.com/manga/', '') ?? ''
             const image = $('.img-fluid', obj).attr('src') ?? ''
             const title = $('.name', obj).text().trim()
             if (i == 10) break

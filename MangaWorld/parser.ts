@@ -11,7 +11,7 @@ import {
     TagSection,
 } from 'paperback-extensions-common'
 
-const MW_DOMAIN = 'https://www.mangaworld.in'
+const MW_DOMAIN = 'https://www.mangaworldadult.com/'
 
 export class Parser {
     parseMangaDetails($: CheerioStatic, mangaId: string): Manga {
@@ -32,7 +32,7 @@ export class Parser {
                         .find('a')
                         .each((_, e) => {
                             label_arr.push($(e).text()) &
-                                id_arr.push($(e).attr('href')?.replace('https://www.mangaworld.in/archive?genre=', '') ?? '')
+                                id_arr.push($(e).attr('href')?.replace('https://www.mangaworldadult.com/archive?genre=', '') ?? '')
                         })
                     break
                 case 2:
@@ -197,7 +197,7 @@ export class Parser {
         sectionCallback(section2)
 
         for (const item of arrTrending) {
-            const id    = $('a', item).attr('href')?.replace('https://www.mangaworld.in/manga/', '').slice(0, -1) ?? ''
+            const id    = $('a', item).attr('href')?.replace('https://www.mangaworldadult.com/manga/', '').slice(0, -1) ?? ''
             const image = $('a img', item).attr('src') ?? ''
             const title = $('.manga-title', item).text().trim()
             trending.push(

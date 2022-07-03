@@ -387,12 +387,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MangaWorld = exports.MangaWorldInfo = void 0;
+exports.MangaWorld_Adult = exports.MangaWorld_AdultInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const parser_1 = require("./parser");
 const helper_1 = require("./helper");
 const MW_DOMAIN = 'https://www.mangaworldadult.com';
-exports.MangaWorldInfo = {
+exports.MangaWorld_AdultInfo = {
     version: '2.0.1',
     name: 'MangaWorld Adult',
     description: 'Extension that pulls manga from MangaWorld Adult.',
@@ -413,7 +413,7 @@ exports.MangaWorldInfo = {
         },
     ],
 };
-class MangaWorld extends paperback_extensions_common_1.Source {
+class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     constructor() {
         super(...arguments);
         this.requestManager = createRequestManager({
@@ -556,7 +556,7 @@ class MangaWorld extends paperback_extensions_common_1.Source {
         return request;
     }
 }
-exports.MangaWorld = MangaWorld;
+exports.MangaWorld_Adult = MangaWorld_Adult;
 
 },{"./helper":49,"./parser":50,"paperback-extensions-common":5}],49:[function(require,module,exports){
 "use strict";

@@ -40,7 +40,7 @@ export const MangaWorldInfo: SourceInfo = {
     ],
 }
 
-export class MangaWorld_Adult extends Source {
+export class MangaWorld extends Source {
     requestManager = createRequestManager({
         requestsPerSecond: 3,
     })

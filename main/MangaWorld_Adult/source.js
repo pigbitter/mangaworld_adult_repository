@@ -607,7 +607,7 @@ exports.URLBuilder = URLBuilder;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
-const MWA_DOMAIN = 'https://www.mangaworld.in';
+const MWA_DOMAIN = 'https://www.mangaworldadult.com';
 class Parser {
     parseMangaDetails($, mangaId) {
         var _a, _b, _c, _d, _e;
@@ -628,7 +628,7 @@ class Parser {
                         .each((_, e) => {
                         var _a, _b;
                         label_arr.push($(e).text()) &
-                            id_arr.push((_b = (_a = $(e).attr('href')) === null || _a === void 0 ? void 0 : _a.replace('https://www.mangaworld.in/archive?genre=', '')) !== null && _b !== void 0 ? _b : '');
+                            id_arr.push((_b = (_a = $(e).attr('href')) === null || _a === void 0 ? void 0 : _a.replace('https://www.mangaworldadult.com/archive?genre=', '')) !== null && _b !== void 0 ? _b : '');
                     });
                     break;
                 case 2:
@@ -759,7 +759,7 @@ class Parser {
         sectionCallback(section1);
         let i = 0;
         for (const obj of arrHotTitle) {
-            const id = (_g = (_f = $('a', obj).attr('href')) === null || _f === void 0 ? void 0 : _f.replace('https://www.mangaworld.in/manga/', '')) !== null && _g !== void 0 ? _g : '';
+            const id = (_g = (_f = $('a', obj).attr('href')) === null || _f === void 0 ? void 0 : _f.replace('https://www.mangaworldadult.com/manga/', '')) !== null && _g !== void 0 ? _g : '';
             const image = (_h = $('.img-fluid', obj).attr('src')) !== null && _h !== void 0 ? _h : '';
             const title = $('.name', obj).text().trim();
             if (i == 10)
@@ -774,7 +774,7 @@ class Parser {
         section2.items = hotTitles;
         sectionCallback(section2);
         for (const item of arrTrending) {
-            const id = (_k = (_j = $('a', item).attr('href')) === null || _j === void 0 ? void 0 : _j.replace('https://www.mangaworld.in/manga/', '').slice(0, -1)) !== null && _k !== void 0 ? _k : '';
+            const id = (_k = (_j = $('a', item).attr('href')) === null || _j === void 0 ? void 0 : _j.replace('https://www.mangaworldadult.com/manga/', '').slice(0, -1)) !== null && _k !== void 0 ? _k : '';
             const image = (_l = $('a img', item).attr('src')) !== null && _l !== void 0 ? _l : '';
             const title = $('.manga-title', item).text().trim();
             trending.push(createMangaTile({

@@ -11,7 +11,7 @@ import {
     TagSection,
 } from 'paperback-extensions-common'
 
-const MWA_DOMAIN = 'https://www.mangaworldadult.com/'
+const MWA_DOMAIN = 'https://www.mangaworldadult.com'
 
 export class Parser {
     parseMangaDetails($: CheerioStatic, mangaId: string): Manga {

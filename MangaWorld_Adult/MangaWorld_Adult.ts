@@ -30,10 +30,6 @@ export const MangaWorld_AdultInfo: SourceInfo = {
     websiteBaseURL: MWA_DOMAIN,
     sourceTags: [
         {
-            text: 'New',
-            type: TagType.GREEN,
-        },
-        {
             text: 'ITALIAN',
             type: TagType.GREY,
         },

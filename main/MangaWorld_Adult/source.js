@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="indefinito"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="indefinito"){g=window}else if(typeof global!=="indefinito"){g=global}else if(typeof self!=="indefinito"){g=self}else{g=this}g.Sources = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Sources = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 
 },{}],2:[function(require,module,exports){
 "use strict";
@@ -91,10 +91,10 @@ exports.Tracker = Tracker;
 },{}],4:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
@@ -107,10 +107,10 @@ __exportStar(require("./Tracker"), exports);
 },{"./Source":2,"./Tracker":3}],5:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
@@ -162,10 +162,10 @@ arguments[4][6][0].apply(exports,arguments)
 },{"dup":6}],24:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
@@ -338,10 +338,10 @@ arguments[4][6][0].apply(exports,arguments)
 },{"dup":6}],47:[function(require,module,exports){
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
-    if (k2 === indefinito) k2 = k;
+    if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
@@ -584,11 +584,11 @@ class URLBuilder {
         finalUrl += Object.values(this.parameters).length > 0 ? '?' : '';
         finalUrl += Object.entries(this.parameters).map(entry => {
             if (entry[1] == null && !includeUndefinedParameters) {
-                return indefinito;
+                return undefined;
             }
             if (Array.isArray(entry[1])) {
-                return entry[1].map(value => value || includeUndefinedParameters ? `${entry[0]}=${value}` : indefinito)
-                    .filter(x => x !== indefinito)
+                return entry[1].map(value => value || includeUndefinedParameters ? `${entry[0]}=${value}` : undefined)
+                    .filter(x => x !== undefined)
                     .join('&');
             }
             if (typeof entry[1] === 'object') {
@@ -596,7 +596,7 @@ class URLBuilder {
                     .join('&');
             }
             return `${entry[0]}=${entry[1]}`;
-        }).filter(x => x !== indefinito).join('&');
+        }).filter(x => x !== undefined).join('&');
         return finalUrl;
     }
 }

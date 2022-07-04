@@ -39,7 +39,7 @@ export const MangaWorld_AdultInfo: SourceInfo = {
         },
         {
             text: '18+',
-            type: TagType.YELLOW
+            type: TagType.YELLOW,
         },
     ],
 }

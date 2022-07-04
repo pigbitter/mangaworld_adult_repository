@@ -387,15 +387,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MangaWorld_Adult_Adult = exports.MangaWorld_AdultInfo = void 0;
+exports.MangaWorld_Adult = exports.MangaWorld_AdultInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const parser_1 = require("./parser");
 const helper_1 = require("./helper");
 const MWA_DOMAIN = 'https://www.mangaworldadult.com';
 exports.MangaWorld_AdultInfo = {
     version: '2.0.1',
-    name: 'MangaWorld_Adult Adult',
-    description: 'Extension that pulls manga from MangaWorld_Adult Adult.',
+    name: 'MangaWorld Adult',
+    description: 'Extension that pulls manga from MangaWorld Adult.',
     author: 'NmN (modified by karoku9)',
     authorWebsite: 'http://github.com/pandeynmm',
     icon: 'icon.png',

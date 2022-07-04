@@ -387,21 +387,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MangaWorld_Adult = exports.MangaWorld_AdultInfo = void 0;
+exports.MangaWorld_Adult_Adult = exports.MangaWorld_AdultInfo = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
 const parser_1 = require("./parser");
 const helper_1 = require("./helper");
-const MW_DOMAIN = 'https://www.mangaworldadult.com';
+const MWA_DOMAIN = 'https://www.mangaworldadult.com';
 exports.MangaWorld_AdultInfo = {
     version: '2.0.1',
-    name: 'MangaWorld Adult',
-    description: 'Extension that pulls manga from MangaWorld Adult.',
+    name: 'MangaWorld_Adult Adult',
+    description: 'Extension that pulls manga from MangaWorld_Adult Adult.',
     author: 'NmN (modified by karoku9)',
     authorWebsite: 'http://github.com/pandeynmm',
     icon: 'icon.png',
     contentRating: paperback_extensions_common_1.ContentRating.EVERYONE,
     language: paperback_extensions_common_1.LanguageCode.ITALIAN,
-    websiteBaseURL: MW_DOMAIN,
+    websiteBaseURL: MWA_DOMAIN,
     sourceTags: [
         {
             text: 'New',
@@ -422,12 +422,12 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
         this.parser = new parser_1.Parser();
     }
     getMangaShareUrl(mangaId) {
-        return `${MW_DOMAIN}/manga/${mangaId}`;
+        return `${MWA_DOMAIN}/manga/${mangaId}`;
     }
     getMangaDetails(mangaId) {
         return __awaiter(this, void 0, void 0, function* () {
             const request = createRequestObject({
-                url: `${MW_DOMAIN}/manga/${mangaId}`,
+                url: `${MWA_DOMAIN}/manga/${mangaId}`,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 3);
@@ -438,7 +438,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     getChapters(mangaId) {
         return __awaiter(this, void 0, void 0, function* () {
             const request = createRequestObject({
-                url: `${MW_DOMAIN}/manga/${mangaId}`,
+                url: `${MWA_DOMAIN}/manga/${mangaId}`,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 3);
@@ -449,7 +449,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     getChapterDetails(mangaId, chapterId) {
         return __awaiter(this, void 0, void 0, function* () {
             const request = createRequestObject({
-                url: `${MW_DOMAIN}/manga/${mangaId}/read/${chapterId}/?style=list`,
+                url: `${MWA_DOMAIN}/manga/${mangaId}/read/${chapterId}/?style=list`,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 3);
@@ -460,7 +460,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     getTags() {
         return __awaiter(this, void 0, void 0, function* () {
             const request = createRequestObject({
-                url: MW_DOMAIN,
+                url: MWA_DOMAIN,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 3);
@@ -490,7 +490,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     getHomePageSections(sectionCallback) {
         return __awaiter(this, void 0, void 0, function* () {
             const request = createRequestObject({
-                url: `${MW_DOMAIN}`,
+                url: `${MWA_DOMAIN}`,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 2);
@@ -503,7 +503,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
         return __awaiter(this, void 0, void 0, function* () {
             const page = (_a = metadata === null || metadata === void 0 ? void 0 : metadata.page) !== null && _a !== void 0 ? _a : 1;
             const request = createRequestObject({
-                url: `${MW_DOMAIN}/?page=${page}`,
+                url: `${MWA_DOMAIN}/?page=${page}`,
                 method: 'GET',
             });
             const response = yield this.requestManager.schedule(request, 1);
@@ -544,7 +544,7 @@ class MangaWorld_Adult extends paperback_extensions_common_1.Source {
     constructSearchRequest(page, query) {
         var _a, _b;
         const request = createRequestObject({
-            url: new helper_1.URLBuilder(MW_DOMAIN)
+            url: new helper_1.URLBuilder(MWA_DOMAIN)
                 .addPathComponent('archive')
                 .addQueryParameter('keyword', encodeURIComponent((_a = query === null || query === void 0 ? void 0 : query.title) !== null && _a !== void 0 ? _a : ''))
                 .addQueryParameter('genre', (_b = query === null || query === void 0 ? void 0 : query.includedTags) === null || _b === void 0 ? void 0 : _b.map((x) => x.id))
@@ -607,7 +607,7 @@ exports.URLBuilder = URLBuilder;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
 const paperback_extensions_common_1 = require("paperback-extensions-common");
-const MW_DOMAIN = 'https://www.mangaworld.in';
+const MWA_DOMAIN = 'https://www.mangaworld.in';
 class Parser {
     parseMangaDetails($, mangaId) {
         var _a, _b, _c, _d, _e;
@@ -670,7 +670,7 @@ class Parser {
         const chapters = [];
         const arrChapters = $('.chapter').toArray().reverse();
         for (const item of arrChapters) {
-            const id = (_b = (_a = $('a', item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MW_DOMAIN}/manga/${mangaId}/read/`, '')) !== null && _b !== void 0 ? _b : '';
+            const id = (_b = (_a = $('a', item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MWA_DOMAIN}/manga/${mangaId}/read/`, '')) !== null && _b !== void 0 ? _b : '';
             const name = (_c = $('a', item).attr('title')) !== null && _c !== void 0 ? _c : '';
             const chapNum = (_d = Number($('.d-inline-block', item).text().split(' ')[1])) !== null && _d !== void 0 ? _d : -1;
             // const time = source.convertTime($('.col3 > a', $(item)).text().split(' ')[0]) ?? ''
@@ -706,7 +706,7 @@ class Parser {
         let first_label = '';
         let i = 0;
         for (const item of $('.dropdown-menu.dropdown-multicol .dropdown-item').toArray()) {
-            const id = (_b = (_a = $(item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MW_DOMAIN}/archive?genre=`, '')) !== null && _b !== void 0 ? _b : '';
+            const id = (_b = (_a = $(item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MWA_DOMAIN}/archive?genre=`, '')) !== null && _b !== void 0 ? _b : '';
             const label = $(item).text().trim();
             if (i == 0)
                 first_label = label;
@@ -721,7 +721,7 @@ class Parser {
         var _a, _b, _c, _d;
         const results = [];
         for (const item of $('.comics-grid .entry').toArray()) {
-            const id = (_b = (_a = $('a', item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MW_DOMAIN}/manga/`, '')) !== null && _b !== void 0 ? _b : '';
+            const id = (_b = (_a = $('a', item).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MWA_DOMAIN}/manga/`, '')) !== null && _b !== void 0 ? _b : '';
             const title = (_c = $('a', item).attr('title')) !== null && _c !== void 0 ? _c : '';
             const image = (_d = $('a img', item).attr('src')) !== null && _d !== void 0 ? _d : '';
             results.push(createMangaTile({
@@ -744,7 +744,7 @@ class Parser {
         const arrHotTitle = $('.col-12 .top-wrapper .entry').toArray();
         const arrTrending = $('.entry.vertical').toArray();
         for (const obj of arrLatest) {
-            const id = (_b = (_a = $('a', obj).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MW_DOMAIN}/manga/`, '').slice(0, -1)) !== null && _b !== void 0 ? _b : '';
+            const id = (_b = (_a = $('a', obj).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MWA_DOMAIN}/manga/`, '').slice(0, -1)) !== null && _b !== void 0 ? _b : '';
             const title = (_c = $('a', obj).attr('title')) !== null && _c !== void 0 ? _c : '';
             const image = (_d = $('a img', obj).attr('src')) !== null && _d !== void 0 ? _d : '';
             const sub = (_e = $('.d-flex.flex-wrap.flex-row a', obj).first().attr('title')) !== null && _e !== void 0 ? _e : '';
@@ -791,7 +791,7 @@ class Parser {
         const more = [];
         const arrLatest = $('.col-sm-12.col-md-8.col-xl-9 .comics-grid .entry').toArray();
         for (const obj of arrLatest) {
-            const id = (_b = (_a = $('a', obj).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MW_DOMAIN}/manga/`, '').slice(0, -1)) !== null && _b !== void 0 ? _b : '';
+            const id = (_b = (_a = $('a', obj).attr('href')) === null || _a === void 0 ? void 0 : _a.replace(`${MWA_DOMAIN}/manga/`, '').slice(0, -1)) !== null && _b !== void 0 ? _b : '';
             const title = (_c = $('a', obj).attr('title')) !== null && _c !== void 0 ? _c : '';
             const image = (_d = $('a img', obj).attr('src')) !== null && _d !== void 0 ? _d : '';
             const sub = (_e = $('.d-flex.flex-wrap.flex-row a', obj).first().attr('title')) !== null && _e !== void 0 ? _e : '';

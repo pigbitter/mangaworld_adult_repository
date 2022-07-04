@@ -17,7 +17,7 @@ import {
 import { Parser } from './parser'
 import { URLBuilder } from './helper'
 
-const MW_DOMAIN = 'https://www.mangaworldadult.com'
+const MWA_DOMAIN = 'https://www.mangaworldadult.com'
 export const MangaWorld_AdultInfo: SourceInfo = {
     version: '2.0.1',
     name: 'MangaWorld Adult',
@@ -27,7 +27,7 @@ export const MangaWorld_AdultInfo: SourceInfo = {
     icon: 'icon.png',
     contentRating: ContentRating.EVERYONE,
     language: LanguageCode.ITALIAN,
-    websiteBaseURL: MW_DOMAIN,
+    websiteBaseURL: MWA_DOMAIN,
     sourceTags: [
         {
             text: 'New',
@@ -36,6 +36,10 @@ export const MangaWorld_AdultInfo: SourceInfo = {
         {
             text: 'ITALIAN',
             type: TagType.GREY,
+        },
+        {
+            text: '18+',
+            type: TagType.YELLOW
         },
     ],
 }
@@ -48,12 +52,12 @@ export class MangaWorld_Adult extends Source {
     parser = new Parser()
 
     override getMangaShareUrl(mangaId: string): string {
-        return `${MW_DOMAIN}/manga/${mangaId}`
+        return `${MWA_DOMAIN}/manga/${mangaId}`
     }
 
     async getMangaDetails(mangaId: string): Promise<Manga> {
         const request = createRequestObject({
-            url: `${MW_DOMAIN}/manga/${mangaId}`,
+            url: `${MWA_DOMAIN}/manga/${mangaId}`,
             method: 'GET',
         })
 
@@ -64,7 +68,7 @@ export class MangaWorld_Adult extends Source {
 
     async getChapters(mangaId: string): Promise<Chapter[]> {
         const request = createRequestObject({
-            url: `${MW_DOMAIN}/manga/${mangaId}`,
+            url: `${MWA_DOMAIN}/manga/${mangaId}`,
             method: 'GET',
         })
 
@@ -75,7 +79,7 @@ export class MangaWorld_Adult extends Source {
 
     async getChapterDetails(mangaId: string, chapterId: string): Promise<ChapterDetails> {
         const request = createRequestObject({
-            url: `${MW_DOMAIN}/manga/${mangaId}/read/${chapterId}/?style=list`,
+            url: `${MWA_DOMAIN}/manga/${mangaId}/read/${chapterId}/?style=list`,
             method: 'GET',
         })
         const response = await this.requestManager.schedule(request, 3)
@@ -85,7 +89,7 @@ export class MangaWorld_Adult extends Source {
 
     override async getTags(): Promise<TagSection[]> {
         const request = createRequestObject({
-            url: MW_DOMAIN,
+            url: MWA_DOMAIN,
             method: 'GET',
         })
 
@@ -114,7 +118,7 @@ export class MangaWorld_Adult extends Source {
 
     override async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
         const request = createRequestObject({
-            url: `${MW_DOMAIN}`,
+            url: `${MWA_DOMAIN}`,
             method: 'GET',
         })
         const response = await this.requestManager.schedule(request, 2)
@@ -127,7 +131,7 @@ export class MangaWorld_Adult extends Source {
         const page = metadata?.page ?? 1
 
         const request = createRequestObject({
-            url: `${MW_DOMAIN}/?page=${page}`,
+            url: `${MWA_DOMAIN}/?page=${page}`,
             method: 'GET',
         })
 
@@ -166,7 +170,7 @@ export class MangaWorld_Adult extends Source {
 
     constructSearchRequest(page: number, query: SearchRequest): any {
         const request = createRequestObject({
-            url: new URLBuilder(MW_DOMAIN)
+            url: new URLBuilder(MWA_DOMAIN)
                 .addPathComponent('archive')
                 .addQueryParameter('keyword', encodeURIComponent(query?.title ?? ''))
                 .addQueryParameter(

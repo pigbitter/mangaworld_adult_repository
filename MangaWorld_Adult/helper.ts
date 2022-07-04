@@ -24,11 +24,11 @@ export class URLBuilder {
         finalUrl += addTrailingSlash ? '/' : ''
         finalUrl += Object.values(this.parameters).length > 0 ? '?' : ''
         finalUrl += Object.entries(this.parameters).map(entry => {
-            if (entry[1] == null && !includeUndefinedParameters) { return indefinito }
+            if (entry[1] == null && !includeUndefinedParameters) { return undefined }
 
             if (Array.isArray(entry[1])) {
-                return entry[1].map(value => value || includeUndefinedParameters ? `${entry[0]}=${value}` : indefinito)
-                    .filter(x => x !== indefinito)
+                return entry[1].map(value => value || includeUndefinedParameters ? `${entry[0]}=${value}` : undefined)
+                    .filter(x => x !== undefined)
                     .join('&')
             }
 
@@ -38,7 +38,7 @@ export class URLBuilder {
             }
 
             return `${entry[0]}=${entry[1]}`
-        }).filter(x => x !== indefinito).join('&')
+        }).filter(x => x !== undefined).join('&')
 
         return finalUrl
     }

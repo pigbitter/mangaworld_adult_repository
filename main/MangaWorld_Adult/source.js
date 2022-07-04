@@ -404,12 +404,12 @@ exports.MangaWorld_AdultInfo = {
     websiteBaseURL: MWA_DOMAIN,
     sourceTags: [
         {
-            text: 'New',
-            type: paperback_extensions_common_1.TagType.GREEN,
+              text: 'ITALIAN',
+            type: TagType.GREY,
         },
         {
-            text: 'ITALIAN',
-            type: paperback_extensions_common_1.TagType.GREY,
+            text: '18+',
+            type: TagType.YELLOW,
         },
     ],
 };
